@@ -45,33 +45,7 @@ subject to deviations{i in I}:
 subject to nequip: #NEW
 	sum{j in J, r in R} x[j,r] = budget;
 
-#subject to trava: #NEW
-#	sum{j in J} y[j] >= x[j,r];
 
-
-
-#subject to fermi {i in I, j in J, r in R: distance[i,j] <= dmin}:
-#	prob[i,j,r]  = 1;
-
-#subject to fermi2 {i in I, j in J, r in R: dmin < distance[i,j] <= dmax}:
-#	prob[i,j,r] = 1 / (1+10**((distance[i,j] - dmin) / (rho[r] - dmin)-1/b) );
-	
-#subject to fermi3 {i in I, j in J, r in R: distance[i,j] > dmax}:
-#	prob[i,j,r] = 0;
-	
-
-#subject to covering{i in I}:
-#	sum{j in I} a[i,j]*x[j] >= y[i];
-	
-#subject to nequip:
-#	sum{j in I} x[j]=equipments;
-
-
-#solve;
-#display _total_solve_time;
-#display x;
-#display y;
-#display z;
 
 
 
